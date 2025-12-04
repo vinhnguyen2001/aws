@@ -1,0 +1,14 @@
+aws_region      = "us-east-1"
+environment     = "dev"
+project_name    = "web-app"
+app_name        = "simple-web-app"
+instance_type   = "t3.micro"
+db_name         = "webapp_db"
+db_username     = "admin"
+db_password     = "YourSecurePassword123!"
+min_size        = 1
+max_size        = 3
+desired_capacity = 2
+
+# Set this to a unique S3 bucket name, or leave empty to use generated name
+# s3_bucket_name = "my-unique-bucket-name"
