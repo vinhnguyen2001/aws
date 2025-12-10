@@ -64,14 +64,11 @@ locals {
   source_files = fileset(var.website_source_directory, "**")
 }
 
-resource "aws_s3_bucket_object" "aws_boostup_website_files" {
+resource "aws_s3_object" "aws_boostup_website_files" {
   for_each = local.source_files
-
-
+  
   bucket = aws_s3_bucket.aws_boostup_bucket.id
-
-  key = each.value
-
+  key    = each.value
   source = "${var.website_source_directory}/${each.value}"
 
   content_type = lookup(
