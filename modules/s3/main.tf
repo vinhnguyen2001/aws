@@ -39,26 +39,29 @@ resource "aws_s3_bucket_website_configuration" "aws_boostup_bucket_website" {
 
 
 # Set Bucket Policy to Allow Public Read Access for Website Hosting
-# Temporarily commented out due to account-level Block Public Access
-# Uncomment after disabling Block Public Access in S3 Console
+resource "aws_s3_bucket_policy" "aws_boostup_bucket_policy" {
+  bucket = aws_s3_bucket.aws_boostup_bucket.id
 
-# resource "aws_s3_bucket_policy" "aws_boostup_bucket_policy" {
-#   bucket = aws_s3_bucket.aws_boostup_bucket.id
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect    = "Allow"
+        Principal = "*"
+        Action    = "s3:ListBucket"
+        Resource  = aws_s3_bucket.aws_boostup_bucket.arn
+      },
+      {
+        Effect    = "Allow"
+        Principal = "*"
+        Action    = "s3:GetObject"
+        Resource  = "${aws_s3_bucket.aws_boostup_bucket.arn}/*"
+      }
+    ]
+  })
 
-#   policy = jsonencode({
-#     Version = "2012-10-17"
-#     Statement = [
-#       {
-#         Effect    = "Allow"
-#         Principal = "*"
-#         Action    = "s3:GetObject"
-#         Resource  = "${aws_s3_bucket.aws_boostup_bucket.arn}/*"
-#       }
-#     ]
-#   })
-
-#   depends_on = [aws_s3_bucket_website_configuration.aws_boostup_bucket_website]
-# }
+  depends_on = [aws_s3_bucket_website_configuration.aws_boostup_bucket_website]
+}
 
 
 # Upload Website Files to S3 Bucket
