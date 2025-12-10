@@ -76,6 +76,7 @@ variable "ec2_instance_type" {
 }
 
 variable "ec2_key_name" {
-  description = "SSH key pair name for EC2 instance"
+  description = "SSH key pair name for EC2 instance (optional - set to empty string if not needed)"
   type        = string
+  default     = ""
 }

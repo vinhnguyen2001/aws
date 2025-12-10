@@ -25,8 +25,9 @@ variable "instance_type" {
 }
 
 variable "key_name" {
-  description = "SSH key pair name"
+  description = "SSH key pair name (optional - leave empty if you don't need SSH access)"
   type        = string
+  default     = null
 }
 
 variable "db_endpoint" {

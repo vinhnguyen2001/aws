@@ -63,7 +63,7 @@ module "compute" {
 
   # EC2 specific variables
   instance_type = var.ec2_instance_type
-  key_name      = var.ec2_key_name
+  key_name      = var.ec2_key_name != "" ? var.ec2_key_name : null
 
   # RDS connection variables
   db_endpoint           = module.rds.db_endpoint

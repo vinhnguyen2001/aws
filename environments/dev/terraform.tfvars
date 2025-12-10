@@ -20,4 +20,4 @@ bucket_name = "aws-boostup-demo-website-2025"
 
 # EC2 configuration
 ec2_instance_type = "t2.micro"
-ec2_key_name      = "boostup-key"  # Change this to your key pair name
+ec2_key_name      = ""  # Leave empty if you don't need SSH access

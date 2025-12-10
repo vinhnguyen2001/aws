@@ -22,7 +22,7 @@ resource "aws_instance" "api_server" {
   
   vpc_security_group_ids = [aws_security_group.api_server_sg.id]
   
-  key_name = var.key_name
+  key_name = var.key_name != null ? var.key_name : null
   
   user_data = templatefile("${path.module}/user_data.sh", {
     db_endpoint = var.db_endpoint
