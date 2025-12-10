@@ -1,5 +1,5 @@
 # Project configuration
-project_name = "aws boostup"
+project_name = "aws-boostup"
 environment  = "dev"
 region       = "us-east-1"
 
