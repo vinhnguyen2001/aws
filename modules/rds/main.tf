@@ -40,7 +40,7 @@ resource "aws_db_instance" "aws_boostup_rds_instance" {
   # Deletion protection
   deletion_protection       = false  # Set to true for production
   skip_final_snapshot      = true    # Set to false for production
-  final_snapshot_identifier = "${var.project_name}-${var.environment}-db_final_snapshot"
+  final_snapshot_identifier = "${var.project_name}-${var.environment}-db-final-snapshot"
   
   tags = {
     Name        = "${var.project_name}-${var.environment}-rds"
