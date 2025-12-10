@@ -29,3 +29,20 @@ output "db_port" {
   description = "Database port"
   value       = module.rds.db_port
 }
+
+# S3 Outputs
+output "website_url" {
+  description = "S3 static website URL"
+  value       = module.s3.website_url
+}
+
+# Compute Outputs
+output "api_server_public_ip" {
+  description = "Public IP of the API server"
+  value       = module.compute.api_server_public_ip
+}
+
+output "api_endpoint" {
+  description = "API endpoint URL"
+  value       = module.compute.api_endpoint
+}

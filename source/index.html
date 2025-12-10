@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoostUp - AWS Infrastructure Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 BoostUp Infrastructure</h1>
+            <p class="subtitle">AWS Multi-Tier Architecture Demo</p>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h2>Welcome to BoostUp!</h2>
+                <p>This website is hosted on AWS S3 and demonstrates a complete cloud infrastructure setup.</p>
+            </section>
+
+            <section class="services">
+                <h2>Infrastructure Services</h2>
+
+                <div class="service-card">
+                    <div class="icon">🌐</div>
+                    <h3>VPC Network</h3>
+                    <p>Custom VPC with public and private subnets across 2 Availability Zones</p>
+                    <ul>
+                        <li>CIDR: 10.0.0.0/16</li>
+                        <li>2 Public Subnets (10.0.1.0/24, 10.0.2.0/24)</li>
+                        <li>2 Private Subnets (10.0.11.0/24, 10.0.12.0/24)</li>
+                        <li>Internet Gateway & NAT Gateway</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">💾</div>
+                    <h3>RDS Database</h3>
+                    <p>MySQL 8.0 database in private subnet for secure data storage</p>
+                    <ul>
+                        <li>Engine: MySQL 8.0</li>
+                        <li>Instance: db.t3.micro</li>
+                        <li>Storage: 20GB (Auto-scaling to 100GB)</li>
+                        <li>Backup: 7 days retention</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">📦</div>
+                    <h3>S3 Static Hosting</h3>
+                    <p>This website is served from Amazon S3</p>
+                    <ul>
+                        <li>Static website hosting</li>
+                        <li>Secure public access</li>
+                        <li>Low latency delivery</li>
+                        <li>Cost-effective storage</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="architecture">
+                <h2>Architecture Overview</h2>
+                <div class="architecture-diagram">
+                    <pre>
+┌─────────────────────────────────────────────────┐
+│                   Internet                       │
+└───────────────┬─────────────────────────────────┘
+                │
+        ┌───────┴──────┐
+        │              │
+   ┌────▼─────┐   ┌───▼────────┐
+   │ S3 Bucket│   │ EC2 API    │
+   │ (Website)│   │ Server     │
+   └──────────┘   └─────┬──────┘
+                        │
+    VPC (10.0.0.0/16)   │
+    ┌───────────────────┼──────────────────┐
+    │                   │                   │
+    │  Public Subnets   │                   │
+    │  (10.0.1.0/24)    │                   │
+    │  (10.0.2.0/24)    │                   │
+    │  - NAT Gateway    │                   │
+    │  - Internet GW  ──┘                   │
+    │                                        │
+    │  Private Subnets                       │
+    │  (10.0.11.0/24, 10.0.12.0/24)         │
+    │  ┌────────────────────────┐           │
+    │  │  RDS MySQL Database    │           │
+    │  │  (Real Data Storage)   │           │
+    │  └────────────────────────┘           │
+    └────────────────────────────────────────┘
+                    </pre>
+                </div>
+                <p style="text-align: center; margin-top: 1rem; color: #667eea;">
+                    <strong>Data Flow:</strong> Browser → S3 Frontend → EC2 API → RDS MySQL
+                </p>
+            </section>
+
+            <section class="demo">
+                <h2>Database Demo - Store Messages in RDS</h2>
+                <div class="demo-box">
+                    <p>Enter a message to store in the MySQL RDS database:</p>
+                    <div class="form-group">
+                        <input type="text" id="message-input" placeholder="Enter your message..." maxlength="500">
+                        <button id="save-message" class="btn">Save to Database</button>
+                    </div>
+                    <button id="test-connection" class="btn btn-secondary">Test RDS Connection</button>
+                    <div id="result"></div>
+                    
+                    <div class="messages-section">
+                        <h3>Recent Messages from Database</h3>
+                        <button id="load-messages" class="btn btn-secondary">Load Messages</button>
+                        <div id="messages-list"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Built with Terraform | Deployed on AWS | Region: us-east-1</p>
+            <p>&copy; 2025 BoostUp Infrastructure Demo</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

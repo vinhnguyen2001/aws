@@ -32,3 +32,8 @@ output "db_resource_id" {
   description = "The RDS Resource ID"
   value       = aws_db_instance.aws_boostup_rds_instance.resource_id
 }
+
+output "db_security_group_id" {
+  description = "The ID of the RDS security group"
+  value       = aws_security_group.aws_boostup_rds_sg.id
+}

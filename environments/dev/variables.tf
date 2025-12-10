@@ -61,3 +61,21 @@ variable "region" {
   type        = string
   default     = "us-east-1"
 }
+
+# S3 variables
+variable "bucket_name" {
+  description = "Name of the S3 bucket"
+  type        = string
+}
+
+# EC2 variables
+variable "ec2_instance_type" {
+  description = "EC2 instance type for API server"
+  type        = string
+  default     = "t2.micro"
+}
+
+variable "ec2_key_name" {
+  description = "SSH key pair name for EC2 instance"
+  type        = string
+}
