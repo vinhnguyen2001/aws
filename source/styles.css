@@ -13,148 +13,10 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1900px;
     margin: 0 auto;
     background: white;
     min-height: 100vh;
-}
-
-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 3rem 2rem;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-}
-
-.subtitle {
-    font-size: 1.2rem;
-    opacity: 0.9;
-}
-
-main {
-    padding: 2rem;
-}
-
-.hero {
-    text-align: center;
-    padding: 2rem 0;
-    border-bottom: 2px solid #f0f0f0;
-}
-
-.hero h2 {
-    font-size: 2.5rem;
-    color: #667eea;
-    margin-bottom: 1rem;
-}
-
-.services {
-    padding: 3rem 0;
-}
-
-.services h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #333;
-}
-
-.service-card {
-    background: #f8f9fa;
-    border-radius: 10px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.service-card h3 {
-    color: #667eea;
-    margin-bottom: 1rem;
-}
-
-.service-card ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.service-card li {
-    padding: 0.5rem 0;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.service-card li:before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: #667eea;
-    font-weight: bold;
-}
-
-.architecture {
-    padding: 3rem 0;
-    background: #f8f9fa;
-    margin: 2rem -2rem;
-    padding: 2rem;
-}
-
-.architecture h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.architecture-diagram {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    overflow-x: auto;
-}
-
-.architecture-diagram pre {
-    font-family: 'Courier New', monospace;
-    font-size: 0.9rem;
-    line-height: 1.4;
-}
-
-.features {
-    padding: 3rem 0;
-}
-
-.features h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.feature {
-    text-align: center;
-    padding: 1.5rem;
-}
-
-.feature h4 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #667eea;
 }
 
 .demo {
@@ -170,7 +32,7 @@ main {
     background: #f8f9fa;
     padding: 2rem;
     border-radius: 10px;
-    max-width: 600px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
