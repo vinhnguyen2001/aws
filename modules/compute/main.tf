@@ -18,8 +18,9 @@ data "aws_ami" "amazon_linux_2" {
 resource "aws_instance" "api_server" {
   ami           = data.aws_ami.amazon_linux_2.id
   instance_type = var.instance_type
+
+  # Network Configuration
   subnet_id     = var.public_subnet_id
-  
   vpc_security_group_ids = [aws_security_group.api_server_sg.id]
   
   key_name = var.key_name != null ? var.key_name : null
